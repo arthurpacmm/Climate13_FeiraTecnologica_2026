@@ -1,0 +1,247 @@
+﻿/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .monitor-btn {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .hero {
+        padding-top: 140px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .planet-area {
+        opacity: .35;
+        width: 100vw;
+        right: -35%;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 12vw, 90px);
+    }
+
+    .goal-grid,
+    .tech-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .indicators-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .brazil-interface {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-main {
+        grid-template-columns: 330px 1fr;
+    }
+
+    .monitor-intro {
+        align-items: start;
+    }
+}
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .monitor-btn {
+        display: inline-grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+    }
+
+    .monitor-btn .status-dot {
+        margin: 0;
+    }
+
+    .top-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    section {
+        padding: 100px 20px;
+    }
+
+    .hero {
+        padding: 130px 20px 80px;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .planet-area {
+        opacity: .2;
+        right: -60%;
+    }
+
+    .hero-bottom {
+        left: 20px;
+        right: 20px;
+    }
+
+    .hero-bottom div:nth-child(2),
+    .hero-bottom div:nth-child(3) {
+        display: none;
+    }
+
+    .future-image {
+        height: 400px;
+    }
+
+    .future-info {
+        left: 20px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .future-info strong {
+        font-size: 28px;
+    }
+
+    .ods-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .ods-number {
+        min-height: 300px;
+    }
+
+    .ods-number strong {
+        font-size: 120px;
+    }
+
+    .goal-grid,
+    .impact-grid,
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .brazil-map {
+        min-height: 450px;
+    }
+
+    .map-shape {
+        width: 240px;
+        height: 380px;
+    }
+
+    .solution-column {
+        padding: 30px;
+        min-height: 500px;
+    }
+
+    .solution-column h3 {
+        font-size: 42px;
+    }
+
+    .choice-box,
+    .quiz-box {
+        padding: 30px 20px;
+    }
+
+    .choice-box h3,
+    .quiz-box h3 {
+        font-size: 25px;
+    }
+
+    .final-section h2 {
+        letter-spacing: -4px;
+    }
+
+    .monitor-overlay {
+        padding: 20px 14px;
+    }
+
+    .monitor-intro {
+        display: block;
+        padding: 30px 0 20px;
+    }
+
+    .monitor-intro h2 {
+        font-size: 40px;
+    }
+
+    .monitor-live {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .monitor-main {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-info {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .globe-panel,
+    #globeContainer {
+        min-height: 470px;
+        height: 470px;
+    }
+
+    .monitor-footer {
+        flex-direction: column;
+    }
+
+    .footer-sources {
+        flex-wrap: wrap;
+    }
+}
+

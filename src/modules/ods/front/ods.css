@@ -1,0 +1,226 @@
+﻿/* ODS */
+
+.ods-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto auto 80px;
+}
+
+.ods-number {
+    border: 1px solid var(--border);
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(99,255,156,.12), transparent 50%);
+}
+
+.ods-number span {
+    color: var(--gray);
+    letter-spacing: 5px;
+}
+
+.ods-number strong {
+    font-family: "Space Grotesk";
+    font-size: 180px;
+    line-height: .8;
+    color: var(--green);
+    letter-spacing: -8px;
+}
+
+.ods-number small {
+    margin-top: 40px;
+    font-size: 9px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.ods-text h3 {
+    font-family: "Space Grotesk";
+    font-size: 35px;
+    line-height: 1.15;
+}
+
+.quote-mark {
+    font-size: 100px;
+    color: var(--green);
+    height: 70px;
+}
+
+.ods-text p {
+    color: var(--gray);
+    line-height: 1.8;
+    margin-top: 25px;
+}
+
+.ods-fact-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 28px;
+    background: var(--border);
+    border: 1px solid var(--border);
+}
+
+.ods-fact-row div {
+    padding: 15px;
+    background:
+        linear-gradient(135deg, rgba(99,255,156,.07), transparent 62%),
+        #050b08;
+}
+
+.ods-fact-row span,
+.ods-targets > span {
+    display: block;
+    color: var(--green);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.ods-fact-row strong {
+    display: block;
+    margin: 8px 0 4px;
+    font-family: "Space Grotesk";
+    font-size: 23px;
+    color: var(--white);
+}
+
+.ods-fact-row small {
+    color: #66756d;
+    font-size: 8px;
+}
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.goal-card {
+    position: relative;
+    background: #060b08;
+    padding: 35px;
+    border-right: 0;
+    min-height: 260px;
+    transition: .3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.goal-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+}
+
+.goal-card:last-child {
+    border: 0;
+}
+
+.goal-card:hover {
+    background: rgba(99,255,156,.04);
+    transform: translateY(-4px);
+}
+
+.goal-card.expanded {
+    background: rgba(99,255,156,.055);
+}
+
+.goal-card > span {
+    font-size: 9px;
+    color: var(--gray);
+}
+
+.goal-icon {
+    font-size: 30px;
+    color: var(--green);
+    margin: 35px 0 20px;
+}
+
+.goal-card h3 {
+    font-family: "Space Grotesk";
+    margin-bottom: 12px;
+}
+
+.goal-card p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.goal-more {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid transparent;
+    transition: .35s ease;
+}
+
+.goal-card.expanded .goal-more {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-color: rgba(99,255,156,.18);
+}
+
+.goal-more strong {
+    color: var(--green);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.ods-targets {
+    display: grid;
+    grid-template-columns: .75fr repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 1px;
+    background: var(--border);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.ods-targets > span,
+.ods-targets div {
+    padding: 22px;
+    background: #050b08;
+}
+
+.ods-targets strong {
+    display: block;
+    color: var(--green);
+    font-family: "Space Grotesk";
+    font-size: 22px;
+}
+
+.ods-targets p {
+    margin-top: 8px;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+    .ods-fact-row,
+    .ods-targets {
+        grid-template-columns: 1fr;
+    }
+}
+

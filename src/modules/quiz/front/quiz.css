@@ -1,0 +1,134 @@
+﻿/* CHOICES */
+
+.choices-section {
+    background: #07100b;
+}
+
+.choice-box {
+    max-width: 900px;
+    margin: auto;
+    border: 1px solid var(--border);
+    padding: 60px;
+    background: #050a07;
+}
+
+.choice-counter {
+    color: var(--green);
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.choice-box h3 {
+    font-family: "Space Grotesk";
+    font-size: 35px;
+    line-height: 1.2;
+}
+
+.choice-options {
+    display: grid;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.choice-option {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: white;
+    text-align: left;
+    padding: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.choice-option:hover:not(:disabled) {
+    border-color: var(--green);
+    background: rgba(99,255,156,.04);
+    transform: translateX(4px);
+}
+
+.choice-option:disabled {
+    cursor: default;
+}
+
+.choice-option span {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    border: 1px solid var(--green);
+    display: grid;
+    place-items: center;
+    color: var(--green);
+}
+
+.choice-option strong {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.choice-option.correct {
+    border-color: var(--green);
+    background: rgba(99,255,156,.08);
+}
+
+.choice-option.correct span {
+    background: var(--green);
+    color: #031006;
+}
+
+.choice-option.wrong {
+    border-color: #ff6969;
+    background: rgba(255,80,80,.06);
+}
+
+.choice-option.wrong span {
+    border-color: #ff6969;
+    color: #ff6969;
+}
+
+.choice-result {
+    min-height: 24px;
+    margin-top: 25px;
+    color: var(--green);
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.choice-result.success {
+    color: var(--green);
+}
+
+.choice-result.error {
+    color: #ff8b8b;
+}
+
+.choice-result.warning-result {
+    color: #ffcf5a;
+}
+
+.choice-restart {
+    display: none;
+    margin-top: 30px;
+    padding: 14px 20px;
+    border: 1px solid var(--green);
+    background: transparent;
+    color: var(--green);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.choice-restart.visible {
+    display: inline-flex;
+}
+
+.choice-restart:hover {
+    background: var(--green);
+    color: #031006;
+}
+

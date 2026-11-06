@@ -1,0 +1,53 @@
+﻿/* FOOTER */
+
+footer {
+    padding: 60px 7% 30px;
+    border-top: 1px solid var(--border);
+    background: #020403;
+}
+
+.footer-logo {
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.footer-logo span {
+    color: var(--green);
+}
+
+footer p {
+    max-width: 400px;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 20px 0 40px;
+}
+
+.footer-sources {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer-sources span {
+    color: #4c5851;
+}
+
+.footer-sources a {
+    color: var(--green);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: #465149;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+

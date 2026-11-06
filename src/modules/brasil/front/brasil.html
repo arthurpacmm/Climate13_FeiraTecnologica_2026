@@ -1,0 +1,157 @@
+<!-- ================= BRASIL ================= -->
+
+<section class="brazil-section" id="brasil">
+
+    <div class="section-title reveal">
+
+        <span class="section-number">05 / BRASIL</span>
+
+        <h2>
+            E o
+            <span>Brasil?</span>
+        </h2>
+
+        <p>
+            Passe o mouse pelas regiões e clique para ver biomas,
+            biodiversidade, importância ecológica e riscos climáticos.
+        </p>
+
+    </div>
+
+    <div class="brazil-interface" id="brazilInterface">
+
+        <div class="brazil-map">
+
+            <div class="brazil-real-shape" id="brazilRealShape">
+
+                <svg
+                    id="brazilRegionsMap"
+                    class="brazil-regions-svg"
+                    viewBox="0 0 760 760"
+                    role="img"
+                    aria-label="Mapa do Brasil dividido por regiões"
+                ></svg>
+
+                <div
+                    class="brazil-map-loading"
+                    id="brazilMapLoading"
+                >
+                    CARREGANDO MAPA...
+                </div>
+
+                <img
+                    src="img/brazil-map.png"
+                    class="brazil-map-fallback"
+                    id="brazilMapFallback"
+                    alt="Mapa do Brasil"
+                >
+
+            </div>
+
+            <div class="map-caption">
+                <span class="pulse"></span>
+                PASSE O MOUSE E SELECIONE UMA REGIÃO
+            </div>
+
+        </div>
+
+        <aside
+            class="region-info"
+            id="regionInfo"
+            aria-live="polite"
+        ></aside>
+
+    </div>
+
+    <!-- ================= MODAL ================= -->
+
+    <div
+        class="brazil-nature-modal"
+        id="brazilNatureModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="brazil-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="brazilModalTitle"
+        >
+
+            <button
+                class="brazil-modal-close"
+                id="closeBrazilModal"
+                type="button"
+                aria-label="Fechar galeria"
+            >
+                ×
+            </button>
+
+            <div class="brazil-modal-top">
+
+                <div>
+                    <span id="brazilModalKicker">
+                        GALERIA
+                    </span>
+
+                    <h3 id="brazilModalTitle">
+                        Natureza da região
+                    </h3>
+                </div>
+
+                <button
+                    class="brazil-mode-toggle"
+                    id="brazilModeToggle"
+                    type="button"
+                >
+                    Ver impactos
+                </button>
+
+            </div>
+
+            <div class="brazil-carousel">
+
+                <button
+                    class="brazil-carousel-btn"
+                    id="brazilPrev"
+                    type="button"
+                    aria-label="Imagem anterior"
+                >
+                    ‹
+                </button>
+
+                <figure>
+
+                    <img
+                        id="brazilCarouselImage"
+                        src=""
+                        alt=""
+                    >
+
+                    <figcaption
+                        id="brazilCarouselCaption"
+                    ></figcaption>
+
+                </figure>
+
+                <button
+                    class="brazil-carousel-btn"
+                    id="brazilNext"
+                    type="button"
+                    aria-label="Próxima imagem"
+                >
+                    ›
+                </button>
+
+            </div>
+
+            <div
+                class="brazil-carousel-dots"
+                id="brazilCarouselDots"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>

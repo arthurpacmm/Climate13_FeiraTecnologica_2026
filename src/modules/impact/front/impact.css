@@ -1,0 +1,47 @@
+﻿/* IMPACT */
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.impact-card {
+    text-align: left;
+    background: #07100b;
+    border: 1px solid var(--border);
+    color: white;
+    padding: 30px;
+    min-height: 260px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.impact-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(99,255,156,.5);
+}
+
+.impact-card > span {
+    color: #506057;
+    font-size: 9px;
+}
+
+.impact-card > div {
+    font-size: 30px;
+    color: var(--green);
+    margin: 30px 0 20px;
+}
+
+.impact-card h3 {
+    font-family: "Space Grotesk";
+    font-size: 22px;
+}
+
+.impact-card p {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+

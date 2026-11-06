@@ -1,0 +1,85 @@
+﻿/* TECHNOLOGY */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+}
+
+.tech-card {
+    border: 1px solid var(--border);
+    padding: 30px;
+    min-height: 380px;
+    background: #060b08;
+    transition: .4s;
+}
+
+.tech-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--green);
+}
+
+.tech-icon {
+    width: 65px;
+    height: 65px;
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    color: var(--green);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.tech-card > span {
+    color: #536059;
+    font-size: 8px;
+}
+
+.tech-card h3 {
+    font-family: "Space Grotesk";
+    margin: 20px 0 15px;
+    font-size: 20px;
+}
+
+.tech-card p {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.tech-more {
+    background: none;
+    border: none;
+    color: var(--green);
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.technology-message {
+    margin-top: 70px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 0;
+}
+
+.technology-message span {
+    color: #ffcf5a;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.technology-message h3 {
+    font-family: "Space Grotesk";
+    font-size: clamp(35px, 5vw, 70px);
+    max-width: 900px;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.technology-message strong {
+    color: var(--green);
+}
+

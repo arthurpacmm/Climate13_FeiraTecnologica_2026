@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contato | CLIMATE/13 — ODS 13</title>
+
+    <meta name="description" content="Entre em contato com o projeto Climate/13. Dúvidas, sugestões ou parcerias sobre ação climática e o ODS 13.">
+
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../main.css?v=20260924-team-final">
+    <link rel="stylesheet" href="contato.css?v=20260924-team-final">
+</head>
+
+<body>
+
+    <!-- FUNDO -->
+    <div class="noise"></div>
+    <div class="grid-background"></div>
+
+    <!-- NAV -->
+    <header id="navbar">
+
+        <a href="../../../index.html" class="logo">
+            <span class="logo-symbol">13</span>
+            <span>CLIMATE<span class="green">/</span>13</span>
+        </a>
+
+        <nav id="mainNav">
+            <a href="../../../index.html#projeto">Projeto</a>
+            <a href="../../../index.html#ods">ODS 13</a>
+            <a href="../../../index.html#problema">O problema</a>
+            <a href="../../../index.html#brasil">Brasil</a>
+            <a href="../../../index.html#solucoes">Soluções</a>
+            <a href="../../../index.html#tecnologia">Tecnologia</a>
+            <a href="../../../index.html#desafio">Desafio</a>
+            <a href="contato.html" class="nav-current">Contato</a>
+            <div class="language-menu" data-language-menu>
+                <button class="language-trigger" type="button" data-language-trigger aria-haspopup="listbox" aria-expanded="false">
+                    <svg class="language-world" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+                        <path d="M3.6 9h16.8"></path>
+                        <path d="M3.6 15h16.8"></path>
+                        <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                        <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                    </svg>
+                    <span data-language-current>EN</span>
+                    <svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 9l6 6l6 -6"></path>
+                    </svg>
+                </button>
+                <div class="language-dropdown" data-language-dropdown role="listbox" aria-label="Language">
+                    <button type="button" data-language-option="en" role="option">
+                        <span>English</span>
+                        <strong>✓</strong>
+                    </button>
+                    <button type="button" data-language-option="pt" role="option">
+                        <span>Português</span>
+                        <strong>✓</strong>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <button class="top-btn" id="topBtn" type="button" aria-label="Voltar ao topo">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5l0 14"></path>
+                <path d="M18 11l-6 -6"></path>
+                <path d="M6 11l6 -6"></path>
+            </svg>
+        </button>
+
+        <a href="../../../index.html" class="back-btn">
+            <span class="status-dot"></span>
+            VOLTAR AO SITE
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">
+            ☰
+        </button>
+
+    </header>
+
+    <main>
+
+        <!-- ================= HERO CONTATO ================= -->
+
+        <section class="contact-hero" id="inicio">
+
+            <div class="eyebrow">
+                <span class="pulse"></span>
+                FALE COM O PROJETO
+            </div>
+
+            <h1>
+                ENTRE EM
+                <span>CONTATO</span>
+            </h1>
+
+            <p class="contact-lead">Tem alguma dúvida ou sugestão sobre o Climate/13? Envie sua mensagem pelo formulário abaixo. Nossa equipe responderá em até 48 horas.</p>
+
+            <div class="contact-hero-bottom">
+
+                <div>
+                    <small>OBJETIVO</small>
+                    <strong>ODS 13</strong>
+                </div>
+
+                <div>
+                    <small>RESPOSTA</small>
+                    <strong>ATÉ 48H</strong>
+                </div>
+
+                <div>
+                    <small>CANAL</small>
+                    <strong>FORMULÁRIO DIRETO</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= FORMULÁRIO + INFO ================= -->
+
+        <section class="contact-section">
+
+            <div class="contact-wrapper">
+
+                <!-- PAINEL DO FORMULÁRIO -->
+                <div class="contact-form-panel reveal">
+
+                    <div class="contact-panel-header">
+                        <span>FORMULÁRIO // MENSAGEM DIRETA</span>
+                        <span id="formStatus" data-i18n-skip>PRONTO</span>
+                    </div>
+
+                    <form id="contactForm" action="https://formsubmit.co/ajax/climate13.etecmcm@gmail.com" method="POST" novalidate>
+
+                        <!-- Campos ocultos usados pelo FormSubmit -->
+                        <input type="hidden" name="_subject" value="Nova mensagem — site Climate/13">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="form-row">
+
+                            <div class="form-group" id="groupNome">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="name" placeholder="Seu nome completo" autocomplete="name">
+                                <span class="form-error" id="errorNome">Digite seu nome.</span>
+                            </div>
+
+                            <div class="form-group" id="groupEmail">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email">
+                                <span class="form-error" id="errorEmail">Digite um e-mail válido.</span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" id="groupAssunto">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?">
+                            <span class="form-error" id="errorAssunto">Digite o assunto da mensagem.</span>
+                        </div>
+
+                        <div class="form-group" id="groupMensagem">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+                            <span class="form-error" id="errorMensagem">Escreva uma mensagem com pelo menos 10 caracteres.</span>
+                        </div>
+
+                        <button type="submit" class="form-submit" id="submitBtn" data-i18n-skip>
+                            ENVIAR MENSAGEM
+                            <span>↗</span>
+                        </button>
+
+                        <span class="form-error" id="errorSubmit" data-i18n-skip style="min-height:0;"></span>
+
+                        <p class="form-note">
+                            Sua mensagem é enviada diretamente para o e-mail
+                            do projeto Climate/13, através do serviço
+                            gratuito FormSubmit. Nenhum dado é armazenado
+                            em banco de dados ou servidor próprio.
+                        </p>
+
+                    </form>
+
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon">✓</div>
+                        <h3>Mensagem enviada!</h3>
+                        <p>
+                            Obrigado pelo contato. Sua mensagem foi enviada
+                            para o e-mail do projeto.
+                        </p>
+                        <button type="button" id="newMessageBtn">ENVIAR OUTRA MENSAGEM</button>
+                    </div>
+
+                </div>
+
+                <!-- PAINEL DE INFORMAÇÕES -->
+                <div class="contact-info-panel reveal">
+
+                    <div class="contact-info-card">
+                        <span class="label">STATUS</span>
+                        <div class="contact-status">
+                            <span class="status-dot"></span>
+                            EQUIPE ONLINE
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <span class="label">CANAIS DE CONTATO</span>
+                        <div class="contact-channels">
+                            <div class="contact-channel">
+                                <span>E-MAIL</span>
+                                <span>climate13.etecmcm@gmail.com</span>
+                            </div>
+                            <div class="contact-channel">
+                                <span>PROJETO</span>
+                                <span>CLIMATE/13</span>
+                            </div>
+                            <div class="contact-channel">
+                                <span>FOCO</span>
+                                <span>AÇÃO CLIMÁTICA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <span class="label">SOBRE O PROJETO</span>
+                        <strong>ODS 13</strong>
+                        <p>
+                            Uma experiência interativa sobre o ODS 13 e a
+                            ação contra a mudança global do clima, criada
+                            como projeto de feira tecnológica.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>13</span>
+            CLIMATE/13
+        </div>
+
+        <p>
+            Uma experiência interativa sobre o ODS 13 —
+            Ação Contra a Mudança Global do Clima.
+        </p>
+
+        <div class="footer-sources">
+
+            <span>FONTES</span>
+
+            <a href="https://www.un.org/sustainabledevelopment/climate-change/" target="_blank">
+                ONU
+            </a>
+
+            <a href="https://www.ipcc.ch/" target="_blank">
+                IPCC
+            </a>
+
+            <a href="https://www.nasa.gov/" target="_blank">
+                NASA
+            </a>
+
+            <a href="https://www.gov.br/inpe/" target="_blank">
+                INPE
+            </a>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>ODS 13 / 2026</span>
+            <span>FEIRA TECNOLÓGICA</span>
+        </div>
+
+    </footer>
+
+    <script src="../../../src/core/back/i18n.js?v=20260924-team-final"></script>
+    <script src="contato.js?v=20260924-contact3"></script>
+
+</body>
+</html>
+

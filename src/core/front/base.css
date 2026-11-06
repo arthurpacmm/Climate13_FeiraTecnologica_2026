@@ -1,0 +1,80 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #050807;
+    --bg2: #08100d;
+    --green: #63ff9c;
+    --green-dark: #164f31;
+    --cyan: #62f5ff;
+    --white: #f1f7f3;
+    --gray: #8d9a93;
+    --border: rgba(99, 255, 156, 0.15);
+    --cursor-x: 50vw;
+    --cursor-y: 50vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(circle 120px at var(--cursor-x) var(--cursor-y), rgba(99,255,156,.012), rgba(98,245,255,.006) 38%, transparent 70%);
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+body.cursor-glow::before {
+    opacity: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .035;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+.grid-background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .08;
+    background-image:
+        linear-gradient(rgba(99,255,156,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,255,156,.12) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+::selection {
+    background: var(--green);
+    color: #000;
+}
+

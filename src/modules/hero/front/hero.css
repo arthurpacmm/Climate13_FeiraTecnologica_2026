@@ -1,0 +1,259 @@
+﻿/* HERO */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 7% 80px;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 52%;
+    position: relative;
+    z-index: 4;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Space Grotesk";
+    font-size: clamp(55px, 7vw, 110px);
+    line-height: .88;
+    letter-spacing: -6px;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    color: var(--green);
+    display: block;
+}
+
+.hero h1 strong {
+    display: block;
+    font-weight: 700;
+}
+
+.hero-description {
+    max-width: 480px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 30px 0;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 22px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.primary-btn {
+    color: #031006;
+    background: var(--green);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(99,255,156,.18);
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    color: #b8c1bc;
+}
+
+.secondary-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.scroll-indicator {
+    margin-top: 70px;
+    color: #637069;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.scroll-indicator span {
+    display: inline-block;
+    width: 35px;
+    height: 1px;
+    background: var(--green);
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* PLANET */
+
+.planet-area {
+    position: absolute;
+    width: 55vw;
+    height: 55vw;
+    max-width: 750px;
+    max-height: 750px;
+    right: -8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.planet {
+    position: absolute;
+    width: 52%;
+    aspect-ratio: 1;
+    top: 24%;
+    left: 24%;
+    border-radius: 50%;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 35% 30%, #244e35, #0b2718 45%, #020604 75%);
+    box-shadow:
+        inset -40px -20px 80px rgba(0,0,0,.8),
+        0 0 50px rgba(52,255,131,.12),
+        0 0 150px rgba(52,255,131,.08);
+}
+
+.planet-surface {
+    position: absolute;
+    inset: 0;
+    opacity: .65;
+    background:
+        radial-gradient(ellipse at 25% 25%, transparent 0 10%, rgba(81,160,98,.4) 11% 14%, transparent 15%),
+        radial-gradient(ellipse at 65% 40%, transparent 0 12%, rgba(87,160,95,.4) 13% 17%, transparent 18%),
+        radial-gradient(ellipse at 40% 70%, transparent 0 9%, rgba(87,160,95,.3) 10% 15%, transparent 16%),
+        radial-gradient(ellipse at 75% 75%, transparent 0 7%, rgba(87,160,95,.3) 8% 13%, transparent 14%);
+    animation: planetMove 15s linear infinite;
+}
+
+@keyframes planetMove {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.planet-grid {
+    position: absolute;
+    inset: -20%;
+    background:
+        linear-gradient(rgba(98,245,255,.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98,245,255,.13) 1px, transparent 1px);
+    background-size: 35px 35px;
+    transform: perspective(300px) rotateY(-20deg);
+    mask-image: radial-gradient(circle, black 30%, transparent 70%);
+}
+
+.planet-light {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 40%, rgba(99,255,156,.15));
+}
+
+.planet-glow {
+    position: absolute;
+    inset: -5%;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(99,255,156,.2);
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(99,255,156,.13);
+    border-radius: 50%;
+    left: 10%;
+    top: 20%;
+    width: 80%;
+    height: 60%;
+    transform: rotate(-25deg);
+}
+
+.orbit-2 {
+    transform: rotate(35deg);
+}
+
+.orbit-3 {
+    transform: rotate(70deg);
+    border-color: rgba(98,245,255,.1);
+}
+
+.data-tag {
+    position: absolute;
+    background: rgba(4,10,7,.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    min-width: 120px;
+}
+
+.data-tag small {
+    display: block;
+    font-size: 7px;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+.data-tag strong {
+    display: block;
+    margin-top: 4px;
+    color: var(--green);
+    font-family: "Space Grotesk";
+}
+
+.warning {
+    color: #ffcf5a !important;
+}
+
+.tag-1 {
+    top: 20%;
+    right: 5%;
+}
+
+.tag-2 {
+    bottom: 25%;
+    left: 2%;
+}
+
+.tag-3 {
+    bottom: 12%;
+    right: 15%;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 7%;
+    right: 7%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 15px;
+}
+
+.hero-bottom small {
+    display: block;
+    color: #53605a;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.hero-bottom strong {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+

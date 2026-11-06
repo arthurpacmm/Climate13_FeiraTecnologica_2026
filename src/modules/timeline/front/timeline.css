@@ -1,0 +1,93 @@
+﻿/* FUTURE */
+
+.future-section {
+    background: #070d0a;
+}
+
+.future-card {
+    max-width: 1100px;
+    margin: auto;
+    border: 1px solid var(--border);
+    background: #050a07;
+}
+
+.future-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    border-bottom: 1px solid var(--border);
+}
+
+.future-image {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 70% 35%, rgba(91,180,111,.25), transparent 20%),
+        linear-gradient(145deg, #132b1b, #050806 60%);
+    transition: .5s;
+}
+
+.future-image.future {
+    background:
+        radial-gradient(circle at 70% 35%, rgba(194,92,37,.25), transparent 20%),
+        linear-gradient(145deg, #382115, #130a07 60%);
+    filter: saturate(.7);
+}
+
+.future-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(99,255,156,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,255,156,.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.future-info {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    max-width: 500px;
+}
+
+.future-info span {
+    color: var(--green);
+    font-family: "Space Grotesk";
+    font-size: 14px;
+}
+
+.future-info strong {
+    display: block;
+    font-family: "Space Grotesk";
+    font-size: 40px;
+    margin: 8px 0;
+}
+
+.future-info p {
+    color: #b1bbb5;
+    line-height: 1.6;
+}
+
+.slider-area {
+    padding: 30px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--gray);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+

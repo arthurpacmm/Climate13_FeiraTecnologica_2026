@@ -1,0 +1,701 @@
+﻿        <!-- ================= DESAFIO ================= -->
+
+                        <!-- ================= CIDADE 2035 / SEÇÃO 09 ================= -->
+
+        <section class="city-game-section" id="desafio">
+
+            <div class="section-title reveal">
+                <span class="section-number">09 / SIMULAÇÃO</span>
+
+                <h2>
+                    Cidade
+                    <span>2035.</span>
+                </h2>
+
+                <p>
+                    Você recebeu o controle do planejamento climático de uma cidade.
+                    O orçamento é limitado: cada decisão traz benefícios, custos e consequências.
+                    Escolha com cuidado e descubra como sua cidade chega em 2040.
+                </p>
+            </div>
+
+            <div class="city-game reveal" id="cityGame">
+
+                <div class="city-game-header">
+                    <div>
+                        <span class="city-game-label">SISTEMA // PLANEJAMENTO URBANO</span>
+                        <strong>CIDADE 2035</strong>
+                    </div>
+
+                    <div class="city-game-budget">
+                        <span>RECURSOS DISPONÍVEIS</span>
+                        <strong><span id="cityBudget">100</span> CR</strong>
+                    </div>
+                </div>
+
+                <!-- INDICADORES -->
+
+                <div class="city-dashboard">
+
+                    <div class="city-stat emissions">
+                        <div class="city-stat-icon">☁</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>EMISSÕES</span>
+                                <strong id="emissionsValue">78</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="emissionsBar"></span>
+                            </div>
+
+                            <small>MENOR É MELHOR</small>
+                        </div>
+                    </div>
+
+
+                    <div class="city-stat">
+                        <div class="city-stat-icon">◆</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>RESILIÊNCIA</span>
+                                <strong id="resilienceValue">28</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="resilienceBar"></span>
+                            </div>
+
+                            <small>PREPARO CONTRA EVENTOS EXTREMOS</small>
+                        </div>
+                    </div>
+
+
+                    <div class="city-stat">
+                        <div class="city-stat-icon">≈</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>ÁGUA</span>
+                                <strong id="waterValue">42</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="waterBar"></span>
+                            </div>
+
+                            <small>SEGURANÇA HÍDRICA</small>
+                        </div>
+                    </div>
+
+
+                    <div class="city-stat">
+                        <div class="city-stat-icon">♙</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>POPULAÇÃO</span>
+                                <strong id="populationValue">52</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="populationBar"></span>
+                            </div>
+
+                            <small>BEM-ESTAR E QUALIDADE DE VIDA</small>
+                        </div>
+                    </div>
+
+
+                    <div class="city-stat">
+                        <div class="city-stat-icon">$</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>ECONOMIA</span>
+                                <strong id="economyValue">55</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="economyBar"></span>
+                            </div>
+
+                            <small>ATIVIDADE ECONÔMICA</small>
+                        </div>
+                    </div>
+
+
+                    <div class="city-stat">
+                        <div class="city-stat-icon">♧</div>
+
+                        <div class="city-stat-content">
+                            <div class="city-stat-top">
+                                <span>BIODIVERSIDADE</span>
+                                <strong id="biodiversityValue">48</strong>
+                            </div>
+
+                            <div class="city-stat-bar">
+                                <span id="biodiversityBar"></span>
+                            </div>
+
+                            <small>SAÚDE DOS ECOSSISTEMAS</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="city-mission">
+
+                    <div>
+                        <span>SUAS DECISÕES</span>
+
+                        <strong>
+                            Você começa com 100 CR. Não existe limite de projetos,
+                            mas decisões confirmadas não podem ser desfeitas.
+                            Escolhas azuis e laranjas geram CR e só podem ser usadas 3 vezes.
+                        </strong>
+                    </div>
+
+                    <div class="city-project-count">
+                        DECISÕES TOMADAS
+                        <strong id="selectedProjectCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="city-decision-hint">
+                    ← COM O MOUSE SOBRE OS CARDS: RODE PARA ESQUERDA OU DIREITA →
+                </div>
+
+
+                <!-- CARROSSEL DE DECISÕES -->
+
+                <div class="city-projects" id="cityProjects">
+
+
+                    <button class="city-project" data-project="transport">
+
+                        <div class="project-icon">⇄</div>
+
+                        <div class="project-head">
+                            <span>MOBILIDADE</span>
+                            <strong>−32 CR</strong>
+                        </div>
+
+                        <h3>Transporte integrado</h3>
+
+                        <p>
+                            Expanda transporte público, corredores rápidos, ciclovias
+                            e integração entre diferentes meios de transporte.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">EMISSÕES ↓↓</span>
+                            <span class="good">POPULAÇÃO ↑↑</span>
+                            <span class="good">ECONOMIA ↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="solar">
+
+                        <div class="project-icon">☀</div>
+
+                        <div class="project-head">
+                            <span>ENERGIA</span>
+                            <strong>−26 CR</strong>
+                        </div>
+
+                        <h3>Energia solar urbana</h3>
+
+                        <p>
+                            Instale geração solar em escolas, hospitais e prédios públicos,
+                            reduzindo a dependência de fontes mais poluentes.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">EMISSÕES ↓↓</span>
+                            <span class="good">ECONOMIA ↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="trees">
+
+                        <div class="project-icon">♧</div>
+
+                        <div class="project-head">
+                            <span>AMBIENTE</span>
+                            <strong>−22 CR</strong>
+                        </div>
+
+                        <h3>Corredores verdes</h3>
+
+                        <p>
+                            Crie parques, arborização, áreas permeáveis e conexões verdes
+                            entre diferentes partes da cidade.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">RESILIÊNCIA ↑↑</span>
+                            <span class="good">POPULAÇÃO ↑↑</span>
+                            <span class="good">BIODIVERSIDADE ↑↑</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="drainage">
+
+                        <div class="project-icon">≋</div>
+
+                        <div class="project-head">
+                            <span>INFRAESTRUTURA</span>
+                            <strong>−34 CR</strong>
+                        </div>
+
+                        <h3>Drenagem inteligente</h3>
+
+                        <p>
+                            Modernize galerias, reservatórios e estruturas de retenção
+                            para reduzir os danos de chuvas intensas.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">RESILIÊNCIA ↑↑</span>
+                            <span class="good">ÁGUA ↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">EMISSÕES ↑</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="alerts">
+
+                        <div class="project-icon">⌁</div>
+
+                        <div class="project-head">
+                            <span>TECNOLOGIA</span>
+                            <strong>−12 CR</strong>
+                        </div>
+
+                        <h3>Rede de alerta climático</h3>
+
+                        <p>
+                            Sensores, previsão e comunicação avisam moradores
+                            antes de enchentes, ondas de calor e outros eventos.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">RESILIÊNCIA ↑↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="water">
+
+                        <div class="project-icon">◒</div>
+
+                        <div class="project-head">
+                            <span>RECURSOS</span>
+                            <strong>−26 CR</strong>
+                        </div>
+
+                        <h3>Reúso de água</h3>
+
+                        <p>
+                            Reduza perdas da rede, trate e reaproveite água
+                            em prédios públicos, residências e empresas.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">ÁGUA ↑↑</span>
+                            <span class="good">RESILIÊNCIA ↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">EMISSÕES ↑</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="rivers">
+
+                        <div class="project-icon">≈</div>
+
+                        <div class="project-head">
+                            <span>NATUREZA</span>
+                            <strong>−22 CR</strong>
+                        </div>
+
+                        <h3>Recuperação dos rios</h3>
+
+                        <p>
+                            Restaure margens, nascentes, matas ciliares e trechos degradados
+                            para melhorar o sistema natural de água da cidade.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">ÁGUA ↑↑</span>
+                            <span class="good">BIODIVERSIDADE ↑↑</span>
+                            <span class="good">RESILIÊNCIA ↑</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="housing">
+
+                        <div class="project-icon">⌂</div>
+
+                        <div class="project-head">
+                            <span>POPULAÇÃO</span>
+                            <strong>−32 CR</strong>
+                        </div>
+
+                        <h3>Moradia resiliente</h3>
+
+                        <p>
+                            Reforce moradias vulneráveis e retire famílias
+                            de áreas com risco elevado de enchentes e deslizamentos.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">POPULAÇÃO ↑↑</span>
+                            <span class="good">RESILIÊNCIA ↑↑</span>
+                            <span class="good">ECONOMIA ↑</span>
+                            <span class="bad">EMISSÕES ↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="waste">
+
+                        <div class="project-icon">↻</div>
+
+                        <div class="project-head">
+                            <span>RESÍDUOS</span>
+                            <strong>−18 CR</strong>
+                        </div>
+
+                        <h3>Economia circular</h3>
+
+                        <p>
+                            Amplie reciclagem, compostagem, logística reversa
+                            e reaproveitamento de materiais.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">EMISSÕES ↓</span>
+                            <span class="good">BIODIVERSIDADE ↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project" data-project="efficiency">
+
+                        <div class="project-icon">⚡</div>
+
+                        <div class="project-head">
+                            <span>EFICIÊNCIA</span>
+                            <strong>−20 CR</strong>
+                        </div>
+
+                        <h3>Prédios eficientes</h3>
+
+                        <p>
+                            Modernize iluminação, climatização, isolamento
+                            e equipamentos dos prédios públicos.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">EMISSÕES ↓↓</span>
+                            <span class="good">ECONOMIA ↑↑</span>
+                            <span class="good">POPULAÇÃO ↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <!-- DECISÕES QUE GERAM CR -->
+
+
+                    <button class="city-project revenue" data-project="waterTariff">
+
+                        <div class="project-icon">$</div>
+
+                        <div class="project-head">
+                            <span>ÁGUA</span>
+                            <strong>+8 CR</strong>
+                        </div>
+
+                        <h3>Tarifa progressiva de água</h3>
+
+                        <p>
+                            Consumos elevados pagam mais. A medida reduz desperdícios
+                            e gera receita, mas pesa no orçamento de famílias e empresas.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑</span>
+                            <span class="good">ÁGUA ↑</span>
+                            <span class="bad">POPULAÇÃO ↓↓</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project revenue" data-project="climateTax">
+
+                        <div class="project-icon">◇</div>
+
+                        <div class="project-head">
+                            <span>POLÍTICA</span>
+                            <strong>+10 CR</strong>
+                        </div>
+
+                        <h3>Taxa sobre grandes emissores</h3>
+
+                        <p>
+                            Grandes emissores passam a pagar mais. A cidade arrecada
+                            e desestimula emissões, mas empresas podem repassar parte dos custos.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑</span>
+                            <span class="good">EMISSÕES ↓</span>
+                            <span class="bad">ECONOMIA ↓↓</span>
+                            <span class="bad">POPULAÇÃO ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project revenue" data-project="urbanToll">
+
+                        <div class="project-icon">◎</div>
+
+                        <div class="project-head">
+                            <span>MOBILIDADE</span>
+                            <strong>+7 CR</strong>
+                        </div>
+
+                        <h3>Pedágio urbano</h3>
+
+                        <p>
+                            Veículos pagam para acessar áreas congestionadas.
+                            O tráfego e as emissões caem, mas deslocamentos ficam mais caros.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑</span>
+                            <span class="good">EMISSÕES ↓</span>
+                            <span class="bad">POPULAÇÃO ↓</span>
+                            <span class="bad">ECONOMIA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project dangerous" data-project="fossilIndustry">
+
+                        <div class="project-icon">▥</div>
+
+                        <div class="project-head">
+                            <span>INDÚSTRIA</span>
+                            <strong>+14 CR</strong>
+                        </div>
+
+                        <h3>Expansão industrial fóssil</h3>
+
+                        <p>
+                            Autorize uma grande expansão industrial baseada em combustíveis fósseis.
+                            A arrecadação e a atividade econômica crescem, mas os impactos climáticos aumentam.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑↑</span>
+                            <span class="good">ECONOMIA ↑↑</span>
+                            <span class="bad">EMISSÕES ↑↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓↓</span>
+                            <span class="bad">POPULAÇÃO ↓</span>
+                            <span class="bad">ÁGUA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project dangerous" data-project="maintenanceCuts">
+
+                        <div class="project-icon">⌫</div>
+
+                        <div class="project-head">
+                            <span>ORÇAMENTO</span>
+                            <strong>+8 CR</strong>
+                        </div>
+
+                        <h3>Cortar manutenção preventiva</h3>
+
+                        <p>
+                            Adie manutenção de drenagem e infraestrutura para liberar recursos agora.
+                            A economia imediata aumenta o risco de falhas futuras.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑</span>
+                            <span class="good">ECONOMIA ↑</span>
+                            <span class="bad">RESILIÊNCIA ↓↓</span>
+                            <span class="bad">POPULAÇÃO ↓↓</span>
+                            <span class="bad">ÁGUA ↓</span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="city-project dangerous" data-project="greenDevelopment">
+
+                        <div class="project-icon">▤</div>
+
+                        <div class="project-head">
+                            <span>URBANIZAÇÃO</span>
+                            <strong>+11 CR</strong>
+                        </div>
+
+                        <h3>Liberar área verde para construção</h3>
+
+                        <p>
+                            Libere uma área ambiental protegida para novos empreendimentos.
+                            A arrecadação cresce, mas a cidade perde vegetação e solo permeável.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="good">CR ↑↑</span>
+                            <span class="good">ECONOMIA ↑↑</span>
+                            <span class="bad">BIODIVERSIDADE ↓↓</span>
+                            <span class="bad">ÁGUA ↓</span>
+                            <span class="bad">RESILIÊNCIA ↓</span>
+                            <span class="bad">EMISSÕES ↑</span>
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <div class="city-game-controls">
+
+                    <div class="city-game-message" id="cityGameMessage">
+                        VOCÊ POSSUI 100 CR. ESCOLHA COM CUIDADO. GANHO DE CR: 0/3.
+                    </div>
+
+                    <button class="city-simulate-btn" id="simulateCity" type="button">
+                        SIMULAR 2040
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <!-- RESULTADO -->
+
+                <div class="city-result" id="cityResult">
+
+                    <div class="city-event-warning">
+                        <span>⚠ EVENTO CLIMÁTICO DETECTADO</span>
+                        <strong id="climateEventTitle"></strong>
+                        <p id="climateEventText"></p>
+                    </div>
+
+
+                    <div class="city-result-grid">
+
+                        <div>
+                            <span>EMISSÕES</span>
+                            <strong id="finalEmissions">--</strong>
+                        </div>
+
+                        <div>
+                            <span>RESILIÊNCIA</span>
+                            <strong id="finalResilience">--</strong>
+                        </div>
+
+                        <div>
+                            <span>ÁGUA</span>
+                            <strong id="finalWater">--</strong>
+                        </div>
+
+                        <div>
+                            <span>POPULAÇÃO</span>
+                            <strong id="finalPopulation">--</strong>
+                        </div>
+
+                        <div>
+                            <span>ECONOMIA</span>
+                            <strong id="finalEconomy">--</strong>
+                        </div>
+
+                        <div>
+                            <span>BIODIVERSIDADE</span>
+                            <strong id="finalBiodiversity">--</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="city-final-score">
+
+                        <span>RESULTADO // CIDADE 2040</span>
+
+                        <h3 id="cityResultTitle"></h3>
+
+                        <p id="cityResultText"></p>
+
+
+                        <div class="city-event-response">
+                            RESPOSTA AO EVENTO
+                            <strong id="eventResponse">--</strong>
+                        </div>
+
+
+                        <div class="city-score-line">
+                            ÍNDICE GERAL
+                            <strong><span id="cityScore">0</span>/100</strong>
+                        </div>
+
+
+                        <button class="city-restart-btn" id="restartCity" type="button">
+                            NOVA SIMULAÇÃO
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+<br>
+<br>
+<br>
+

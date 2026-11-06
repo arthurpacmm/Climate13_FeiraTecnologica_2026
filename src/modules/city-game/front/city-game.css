@@ -1,0 +1,1146 @@
+﻿/* ================= CIDADE 2035 ================= */
+
+.city-game-section {
+    background: #030605;
+}
+
+.city-game {
+    max-width: 1200px;
+    margin: auto;
+    border: 1px solid var(--border);
+    background: #040806;
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+.city-game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 26px 32px;
+    border-bottom: 1px solid var(--border);
+    background:
+        radial-gradient(
+            circle at right,
+            rgba(99,255,156,.06),
+            transparent 35%
+        );
+}
+
+.city-game-label {
+    display: block;
+    font-size: 8px;
+    color: var(--gray);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.city-game-header > div:first-child strong {
+    font-family: "Space Grotesk";
+    color: var(--green);
+    font-size: 23px;
+}
+
+.city-game-budget {
+    text-align: right;
+}
+
+.city-game-budget > span {
+    display: block;
+    color: var(--gray);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.city-game-budget strong {
+    display: block;
+    margin-top: 5px;
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    color: var(--green);
+}
+
+
+/* INDICADORES */
+
+.city-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+}
+
+.city-stat {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 23px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.city-stat:nth-child(3n) {
+    border-right: none;
+}
+
+.city-stat:nth-child(n+4) {
+    border-bottom: none;
+}
+
+.city-stat-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    color: var(--green);
+
+    font-size: 21px;
+
+    background:
+        rgba(99,255,156,.025);
+}
+
+.city-stat-content {
+    flex: 1;
+}
+
+.city-stat-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.city-stat-top span {
+    color: #aab5af;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.city-stat-top strong {
+    font-family: "Space Grotesk";
+    color: var(--green);
+    font-size: 19px;
+}
+
+.city-stat-bar {
+    height: 4px;
+    background: #111a15;
+    margin: 10px 0 8px;
+    overflow: hidden;
+}
+
+.city-stat-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 14px rgba(99,255,156,.3);
+
+    transition:
+        width .6s ease;
+}
+
+.city-stat small {
+    color: #58645e;
+    font-size: 6px;
+    letter-spacing: 1px;
+}
+
+.city-stat.emissions .city-stat-icon,
+.city-stat.emissions .city-stat-top strong {
+    color: #ffcf5a;
+}
+
+.city-stat.emissions .city-stat-bar span {
+    background: #ffcf5a;
+
+    box-shadow:
+        0 0 14px rgba(255,207,90,.22);
+}
+
+
+/* MISSÃO */
+
+.city-mission {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 27px 32px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.city-mission > div:first-child span {
+    display: block;
+
+    color: var(--green);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+.city-mission > div:first-child strong {
+    font-family: "Space Grotesk";
+
+    font-size: 17px;
+
+    line-height: 1.45;
+}
+
+.city-project-count {
+    color: var(--gray);
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+.city-project-count strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--green);
+
+    font-family:
+        "Space Grotesk";
+
+    font-size: 24px;
+}
+
+
+/* DICA */
+
+.city-decision-hint {
+    padding:
+        13px 30px;
+
+    color:
+        #56625b;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        2px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+/* CARROSSEL */
+
+.city-projects {
+    display: flex;
+
+    gap: 14px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding:
+        44px 76px 52px;
+
+    scroll-snap-type: none;
+
+    scroll-behavior: auto;
+
+    overscroll-behavior-x:
+        contain;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        var(--green)
+        #101712;
+}
+
+
+.city-projects::-webkit-scrollbar {
+    height: 5px;
+}
+
+.city-projects::-webkit-scrollbar-track {
+    background:
+        #101712;
+}
+
+.city-projects::-webkit-scrollbar-thumb {
+    background:
+        var(--green);
+}
+
+
+/* CARD */
+
+.city-project {
+    position: relative;
+
+    flex:
+        0 0 286px;
+
+    min-height:
+        350px;
+
+    padding:
+        26px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            150deg,
+            #07100b,
+            #030604
+        );
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        opacity .3s ease,
+        background .3s ease;
+}
+
+
+.city-project:hover:not(:disabled) {
+    transform:
+        scale(1.065)
+        translateY(-7px);
+
+    z-index: 10;
+
+    border-color:
+        rgba(99,255,156,.7);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1b11,
+            #040806
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.45),
+
+        0 0 30px
+        rgba(99,255,156,.06);
+}
+
+
+/* ÍCONE */
+
+.project-icon {
+    width: 60px;
+
+    height: 60px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom:
+        32px;
+
+    border:
+        1px solid
+        rgba(99,255,156,.25);
+
+    background:
+        rgba(99,255,156,.035);
+
+    color:
+        var(--green);
+
+    font-size:
+        30px;
+
+    transition:
+        .35s;
+}
+
+
+.city-project:hover:not(:disabled)
+.project-icon {
+    transform:
+        scale(1.12)
+        rotate(-4deg);
+
+    box-shadow:
+        0 0 30px
+        rgba(99,255,156,.09);
+}
+
+
+/* CABEÇALHO DO CARD */
+
+.project-head {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 15px;
+
+    margin-bottom:
+        14px;
+}
+
+.project-head span {
+    color:
+        #657069;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        1.5px;
+}
+
+.project-head strong {
+    color:
+        var(--green);
+
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        12px;
+}
+
+
+/* TEXTO */
+
+.city-project h3 {
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        22px;
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        13px;
+}
+
+.city-project p {
+    color:
+        var(--gray);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.65;
+}
+
+
+/* EFEITOS */
+
+.project-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top:
+        20px;
+}
+
+.project-tags span {
+    padding:
+        6px 7px;
+
+    border:
+        1px solid var(--border);
+
+    color:
+        #7f8b84;
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        .8px;
+}
+
+
+/* EFEITO POSITIVO */
+
+.project-tags .good {
+    color:
+        var(--green);
+
+    border-color:
+        rgba(99,255,156,.24);
+
+    background:
+        rgba(99,255,156,.025);
+}
+
+
+/* EFEITO NEGATIVO */
+
+.project-tags .bad {
+    color:
+        #ff9f7a;
+
+    border-color:
+        rgba(255,120,90,.25);
+
+    background:
+        rgba(255,120,90,.025);
+}
+
+
+/* CARDS QUE GERAM CR */
+
+.city-project.revenue
+.project-head strong {
+    color:
+        var(--cyan);
+}
+
+.city-project.revenue
+.project-icon {
+    color:
+        var(--cyan);
+
+    border-color:
+        rgba(98,245,255,.25);
+}
+
+
+/* DECISÕES DE ALTO RISCO */
+
+.city-project.dangerous
+.project-head strong {
+    color:
+        #ffcf5a;
+}
+
+.city-project.dangerous
+.project-icon {
+    color:
+        #ffcf5a;
+
+    border-color:
+        rgba(255,207,90,.25);
+}
+
+
+/* DECISÃO JÁ TOMADA */
+
+.city-project.selected {
+    border-color:
+        var(--green);
+
+    background:
+        rgba(99,255,156,.07);
+
+    opacity:
+        .7;
+
+    cursor:
+        default;
+}
+
+.city-project.selected::after {
+    content:
+        "DECISÃO TOMADA";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    background:
+        rgba(1,7,4,.82);
+
+    backdrop-filter:
+        blur(4px);
+
+    color:
+        var(--green);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+}
+
+
+/*
+    MUITO IMPORTANTE PARA O SCROLL:
+
+    Cards desativados não capturam
+    eventos do mouse.
+
+    Assim a rodinha continua chegando
+    no carrossel mesmo quando o cursor
+    estiver sobre uma escolha já feita
+    ou sem CR suficiente.
+*/
+
+.city-project:disabled {
+    pointer-events:
+        none;
+}
+
+
+.city-project:disabled:not(.selected) {
+    opacity:
+        .22;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* CONTROLES */
+
+.city-game-controls {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        25px;
+
+    padding:
+        28px 32px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.city-game-message {
+    color:
+        var(--gray);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        1.5px;
+
+    line-height:
+        1.7;
+}
+
+
+.city-simulate-btn {
+    min-width:
+        215px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    padding:
+        17px 20px;
+
+    border:
+        1px solid var(--green);
+
+    background:
+        var(--green);
+
+    color:
+        #031006;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s;
+}
+
+
+.city-simulate-btn:hover:not(:disabled) {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(99,255,156,.15);
+}
+
+
+.city-simulate-btn:disabled {
+    opacity:
+        .25;
+
+    cursor:
+        default;
+}
+
+
+/* RESULTADO */
+
+.city-result {
+    display:
+        none;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.city-result.visible {
+    display:
+        block;
+
+    animation:
+        cityResultIn .7s ease;
+}
+
+
+@keyframes cityResultIn {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* EVENTO */
+
+.city-event-warning {
+    padding:
+        48px 30px;
+
+    text-align:
+        center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,207,90,.08),
+            transparent 55%
+        );
+}
+
+
+.city-event-warning > span {
+    display:
+        block;
+
+    color:
+        #ffcf5a;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2.5px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.city-event-warning strong {
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            58px
+        );
+}
+
+
+.city-event-warning p {
+    max-width:
+        650px;
+
+    margin:
+        17px auto 0;
+
+    color:
+        var(--gray);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+}
+
+
+/* RESULTADOS */
+
+.city-result-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.city-result-grid > div {
+    padding:
+        23px;
+
+    border-right:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.city-result-grid > div:nth-child(3n) {
+    border-right:
+        none;
+}
+
+
+.city-result-grid span {
+    display:
+        block;
+
+    color:
+        var(--gray);
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        1.5px;
+
+    margin-bottom:
+        7px;
+}
+
+
+.city-result-grid strong {
+    color:
+        var(--green);
+
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        20px;
+}
+
+
+/* SCORE */
+
+.city-final-score {
+    padding:
+        55px 30px;
+
+    text-align:
+        center;
+}
+
+
+.city-final-score > span {
+    color:
+        var(--green);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2.5px;
+}
+
+
+.city-final-score h3 {
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            70px
+        );
+
+    margin:
+        14px 0;
+}
+
+
+.city-final-score p {
+    max-width:
+        680px;
+
+    margin:
+        auto;
+
+    color:
+        var(--gray);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+}
+
+
+.city-event-response,
+.city-score-line {
+    max-width:
+        450px;
+
+    margin:
+        28px auto 0;
+
+    padding:
+        17px 20px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--gray);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+.city-event-response strong,
+.city-score-line strong {
+    color:
+        var(--green);
+
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        16px;
+}
+
+
+/* REINICIAR */
+
+.city-restart-btn {
+    margin-top:
+        25px;
+
+    padding:
+        15px 20px;
+
+    border:
+        1px solid var(--green);
+
+    background:
+        transparent;
+
+    color:
+        var(--green);
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s;
+}
+
+
+.city-restart-btn:hover {
+    background:
+        var(--green);
+
+    color:
+        #031006;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 800px) {
+
+    .city-dashboard {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .city-stat:nth-child(3n) {
+        border-right:
+            1px solid var(--border);
+    }
+
+    .city-stat:nth-child(2n) {
+        border-right:
+            none;
+    }
+
+    .city-project {
+        flex-basis:
+            265px;
+    }
+
+    .city-game-header,
+    .city-mission,
+    .city-game-controls {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .city-game-budget,
+    .city-project-count {
+        text-align:
+            left;
+    }
+
+    .city-simulate-btn {
+        width:
+            100%;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .city-dashboard {
+        grid-template-columns:
+            1fr;
+    }
+
+    .city-stat {
+        border-right:
+            none !important;
+    }
+
+    .city-projects {
+        padding-inline:
+            28px;
+    }
+
+    .city-project {
+        flex-basis:
+            82vw;
+    }
+
+    .city-result-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+

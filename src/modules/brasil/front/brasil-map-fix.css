@@ -1,0 +1,979 @@
+/* =========================================================
+   BRASIL INTERATIVO
+   ========================================================= */
+
+/* ================= INTERFACE ================= */
+
+.brazil-interface {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0fr;
+    gap: 0;
+    align-items: center;
+    transition:
+        grid-template-columns .45s ease,
+        gap .45s ease;
+}
+
+.brazil-interface.has-selection {
+    grid-template-columns:
+        minmax(360px, .95fr)
+        minmax(330px, .8fr);
+
+    gap: clamp(34px, 5vw, 76px);
+}
+
+
+/* ================= ÁREA DO MAPA ================= */
+
+.brazil-map {
+    min-height: 680px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.brazil-real-shape {
+    width: min(680px, 80vw) !important;
+    aspect-ratio: 1 / 1;
+    position: relative;
+
+    border: 0 !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(99,255,156,.14),
+            rgba(99,255,156,.045) 42%,
+            transparent 72%
+        ) !important;
+
+    clip-path: none !important;
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(99,255,156,.16)
+        );
+
+    transition:
+        width .45s ease,
+        transform .45s ease;
+
+    cursor: default;
+    isolation: isolate;
+}
+
+.brazil-interface.has-selection
+.brazil-real-shape {
+    width: min(510px, 42vw) !important;
+    transform: translateX(-2vw);
+}
+
+
+/* ================= SVG ================= */
+
+.brazil-regions-svg {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    overflow: visible;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================= REGIÕES ================= */
+
+.brazil-region-path {
+    fill:
+        rgba(
+            99,
+            255,
+            156,
+            .58
+        );
+
+    stroke:
+        rgba(
+            99,
+            255,
+            156,
+            .94
+        );
+
+    stroke-width: 1.6;
+
+    vector-effect:
+        non-scaling-stroke;
+
+    cursor: pointer;
+
+    outline: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    transition:
+        fill .18s ease,
+        opacity .18s ease,
+        filter .18s ease;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(
+                99,
+                255,
+                156,
+                .20
+            )
+        );
+}
+
+.brazil-region-path:focus,
+.brazil-region-path:focus-visible {
+    outline: none;
+}
+
+.brazil-region-path:hover,
+.brazil-region-path.active {
+    fill: #63ff9c;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(
+                99,
+                255,
+                156,
+                .90
+            )
+        )
+        drop-shadow(
+            0 0 18px
+            rgba(
+                99,
+                255,
+                156,
+                .55
+            )
+        )
+        drop-shadow(
+            0 0 36px
+            rgba(
+                99,
+                255,
+                156,
+                .24
+            )
+        );
+}
+
+.brazil-regions-svg.has-active
+.brazil-region-path:not(.active) {
+    fill:
+        rgba(
+            99,
+            255,
+            156,
+            .42
+        );
+}
+
+
+/* ================= CARREGAMENTO ================= */
+
+.brazil-map-loading {
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    z-index: 1;
+
+    color: var(--green);
+
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+.brazil-real-shape.map-ready
+.brazil-map-loading {
+    display: none;
+}
+
+
+/* ================= FALLBACK ================= */
+
+.brazil-map-fallback {
+    display: none;
+
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: .95;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(82%)
+        sepia(43%)
+        saturate(750%)
+        hue-rotate(96deg)
+        brightness(118%)
+        contrast(105%)
+        drop-shadow(
+            0 0 18px
+            rgba(
+                99,
+                255,
+                156,
+                .35
+            )
+        );
+}
+
+.brazil-real-shape.map-error
+.brazil-map-fallback {
+    display: block;
+}
+
+.brazil-real-shape.map-error
+.brazil-regions-svg,
+
+.brazil-real-shape.map-error
+.brazil-map-loading {
+    display: none;
+}
+
+
+/* ================= LEGENDA ================= */
+
+.map-caption {
+    position: absolute;
+
+    bottom: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: var(--gray);
+}
+
+
+/* ================= PAINEL ================= */
+
+.region-info {
+    opacity: 0;
+
+    transform:
+        translateX(24px);
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+    min-width: 0;
+
+    max-height: 680px;
+
+    overflow-y: auto;
+
+    padding:
+        28px
+        0
+        28px
+        26px;
+
+    border-left:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .22
+        );
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--green)
+        transparent;
+}
+
+.brazil-interface.has-selection
+.region-info {
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+}
+
+
+/* ================= SCROLL ================= */
+
+.region-info::-webkit-scrollbar {
+    width: 6px;
+}
+
+.region-info::-webkit-scrollbar-track {
+    background:
+        rgba(
+            99,
+            255,
+            156,
+            .06
+        );
+}
+
+.region-info::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--green),
+            rgba(
+                98,
+                245,
+                255,
+                .55
+            )
+        );
+}
+
+
+/* ================= CÓDIGO ================= */
+
+.region-code {
+    color: var(--green);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ================= TÍTULO ================= */
+
+.region-info h3 {
+    margin:
+        14px
+        0
+        12px;
+
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            62px
+        );
+
+    line-height: .95;
+}
+
+
+/* ================= TEXTO ================= */
+
+.region-info p {
+    max-width: 520px;
+
+    color: var(--gray);
+
+    line-height: 1.75;
+
+    font-size: 13px;
+}
+
+
+/* ================= TAGS ================= */
+
+.region-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 22px 0;
+}
+
+.region-tags span {
+    border:
+        1px solid
+        var(--border);
+
+    padding:
+        8px
+        10px;
+
+    color: var(--green);
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= TABELA DA REGIÃO ================= */
+
+.region-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    margin-top: 18px;
+
+    border:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .30
+        );
+
+    background: #050b08;
+}
+
+.region-grid-item {
+    min-height: 82px;
+
+    padding: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                99,
+                255,
+                156,
+                .045
+            ),
+            transparent 62%
+        ),
+        #050b08;
+}
+
+
+/* LINHA VERTICAL */
+
+.region-grid-item:nth-child(odd) {
+    border-right:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .22
+        );
+}
+
+
+/* LINHAS HORIZONTAIS */
+
+.region-grid-item:nth-child(-n + 4) {
+    border-bottom:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .22
+        );
+}
+
+
+/* TÍTULO PEQUENO */
+
+.region-grid-item span {
+    display: block;
+
+    color: #617168;
+
+    font-size: 7px;
+
+    letter-spacing: 1.4px;
+}
+
+
+/* CONTEÚDO */
+
+.region-grid-item strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--white);
+
+    font-family:
+        "Space Grotesk";
+
+    font-size: 15px;
+
+    line-height: 1.15;
+}
+
+
+/* ================= EXPLORAR ================= */
+
+.region-explore-btn {
+    margin-top: 22px;
+
+    border:
+        1px solid
+        var(--green);
+
+    background:
+        rgba(
+            99,
+            255,
+            156,
+            .06
+        );
+
+    color: var(--green);
+
+    padding:
+        13px
+        18px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.region-explore-btn:hover {
+    background: var(--green);
+
+    color: #031006;
+
+    box-shadow:
+        0 0 30px
+        rgba(
+            99,
+            255,
+            156,
+            .22
+        );
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.brazil-nature-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9000;
+
+    display: none;
+
+    place-items: center;
+
+    padding: 24px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .76
+        );
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.brazil-nature-modal.active {
+    display: grid;
+}
+
+
+/* ================= CARD ================= */
+
+.brazil-modal-card {
+    width:
+        min(
+            980px,
+            96vw
+        );
+
+    border:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .28
+        );
+
+    background: #030806;
+
+    box-shadow:
+        0 30px 100px
+        rgba(
+            0,
+            0,
+            0,
+            .58
+        );
+
+    position: relative;
+}
+
+
+/* ================= FECHAR ================= */
+
+.brazil-modal-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 5;
+
+    width: 34px;
+    height: 34px;
+
+    border:
+        1px solid
+        rgba(
+            99,
+            255,
+            156,
+            .25
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .25
+        );
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+
+/* ================= TOPO MODAL ================= */
+
+.brazil-modal-top {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 18px;
+
+    align-items: end;
+
+    padding: 24px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+.brazil-modal-top span {
+    color: var(--green);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.brazil-modal-top h3 {
+    margin-top: 8px;
+
+    font-family:
+        "Space Grotesk";
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            46px
+        );
+}
+
+
+/* ================= MODO ================= */
+
+.brazil-mode-toggle {
+    border:
+        1px solid
+        var(--green);
+
+    background: transparent;
+
+    color: var(--green);
+
+    padding:
+        12px
+        15px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+}
+
+
+/* ================= CARROSSEL ================= */
+
+.brazil-carousel {
+    display: grid;
+
+    grid-template-columns:
+        52px
+        1fr
+        52px;
+
+    align-items: center;
+}
+
+.brazil-carousel figure {
+    position: relative;
+
+    min-height: 520px;
+
+    overflow: hidden;
+}
+
+.brazil-carousel img {
+    width: 100%;
+
+    height: 520px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.brazil-carousel figcaption {
+    position: absolute;
+
+    left: 22px;
+    right: 22px;
+
+    bottom: 18px;
+
+    color: white;
+
+    font-size: 13px;
+
+    text-shadow:
+        0 2px 18px
+        rgba(
+            0,
+            0,
+            0,
+            .85
+        );
+}
+
+
+/* ================= SETAS ================= */
+
+.brazil-carousel-btn {
+    height: 100%;
+
+    min-height: 520px;
+
+    border: 0;
+
+    background: #030806;
+
+    color: var(--green);
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+
+/* ================= DOTS ================= */
+
+.brazil-carousel-dots {
+    display: flex;
+
+    gap: 8px;
+
+    justify-content: center;
+
+    padding: 16px;
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+.brazil-carousel-dots button {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        var(--green);
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.brazil-carousel-dots button.active {
+    background: var(--green);
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .brazil-interface,
+    .brazil-interface.has-selection {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+    }
+
+    .brazil-map {
+        min-height: 520px;
+    }
+
+    .brazil-real-shape,
+    .brazil-interface.has-selection
+    .brazil-real-shape {
+        width:
+            min(
+                470px,
+                88vw
+            ) !important;
+
+        transform: none;
+    }
+
+    .region-info {
+        max-height: none;
+
+        padding:
+            22px
+            0
+            0;
+
+        border-left: 0;
+
+        border-top:
+            1px solid
+            rgba(
+                99,
+                255,
+                156,
+                .22
+            );
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .brazil-map {
+        min-height: 430px;
+    }
+
+    .brazil-real-shape,
+    .brazil-interface.has-selection
+    .brazil-real-shape {
+        width:
+            92vw !important;
+    }
+
+    .region-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .region-grid-item {
+        border-right:
+            0 !important;
+
+        border-bottom:
+            1px solid
+            rgba(
+                99,
+                255,
+                156,
+                .22
+            ) !important;
+    }
+
+    .region-grid-item:last-child {
+        border-bottom:
+            0 !important;
+    }
+
+    .brazil-carousel {
+        grid-template-columns:
+            42px
+            1fr
+            42px;
+    }
+
+    .brazil-carousel figure,
+    .brazil-carousel img,
+    .brazil-carousel-btn {
+        min-height: 360px;
+
+        height: 360px;
+    }
+}

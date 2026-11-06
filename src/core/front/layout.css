@@ -1,0 +1,41 @@
+﻿/* SECTIONS */
+
+section {
+    position: relative;
+    padding: 150px 7%;
+}
+
+.section-title {
+    max-width: 850px;
+    margin-bottom: 70px;
+}
+
+.section-number {
+    display: block;
+    font-size: 9px;
+    color: var(--green);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-family: "Space Grotesk";
+    font-size: clamp(40px, 5vw, 75px);
+    line-height: 1.04;
+    letter-spacing: -3px;
+}
+
+.section-title h2 span {
+    display: inline-block;
+    margin-left: .12em;
+    margin-top: .04em;
+    color: var(--green);
+}
+
+.section-title p {
+    color: var(--gray);
+    max-width: 600px;
+    margin-top: 25px;
+    line-height: 1.7;
+}
+

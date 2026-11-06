@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Planeta verde e preto">
+  <rect width="64" height="64" rx="14" fill="#030705"/>
+  <circle cx="32" cy="32" r="19" fill="#63ff9c"/>
+  <path d="M20 18c8 4 18 2 25 9 4 4 5 9 4 15a19 19 0 0 0-29-24Z" fill="#0a1510" opacity=".9"/>
+  <path d="M16 35c7-2 12 4 19 2 5-1 7-6 13-5a19 19 0 0 1-32 3Z" fill="#0a1510" opacity=".92"/>
+  <path d="M14 30c10-8 26-13 40-10" fill="none" stroke="#63ff9c" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+  <path d="M11 38c12 7 30 8 43 0" fill="none" stroke="#63ff9c" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#0b0f0c" stroke-width="4"/>
+</svg>

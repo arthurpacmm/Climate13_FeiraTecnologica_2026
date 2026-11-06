@@ -1,0 +1,44 @@
+﻿/* REVEAL */
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-social {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    background: #ffff;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.team-social:hover {
+    background: var(--green);
+    border-color: var(--green);
+    transform: translateY(-2px);
+}
+
+.team-social img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.team-social:hover img {
+    transform: scale(1.1);
+}
+
