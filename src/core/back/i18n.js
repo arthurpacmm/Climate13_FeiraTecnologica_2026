@@ -631,8 +631,10 @@
         "NATUREZA PRESERVADA": "PRESERVED NATURE",
         "IMPACTOS E DEGRADAÇÃO": "IMPACTS AND DEGRADATION",
         "vida natural": "natural life",
+        "impactos ambientais": "environmental impacts",
         "pressões climáticas": "climate pressures",
         "Ver impactos": "View impacts",
+        "Ver vida natural": "View natural life",
         "Ver natureza": "View nature",
         "Foto": "Photo",
 

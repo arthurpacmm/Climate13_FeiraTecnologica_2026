@@ -17,6 +17,16 @@ const brazilCarouselDots = document.getElementById("brazilCarouselDots");
 const brazilPrev = document.getElementById("brazilPrev");
 const brazilNext = document.getElementById("brazilNext");
 
+// Estes textos são renderizados pelo estado da galeria, inclusive no idioma ativo.
+[
+    brazilModalKicker,
+    brazilModalTitle,
+    brazilModeToggle,
+    brazilCarouselImage,
+    brazilCarouselCaption,
+    brazilCarouselDots
+].forEach(element => element.setAttribute("data-i18n-skip", ""));
+
 const BRAZIL_TOPO_URL =
     "https://cdn.jsdelivr.net/gh/betafcc/Brasil-Topojsons@master/min/regioes.topo.json";
 
@@ -35,6 +45,8 @@ let currentRegion = "norte";
 let selectedRegion = "";
 let currentGalleryMode = "nature";
 let currentSlide = 0;
+let displayedSlideUrl = "";
+let galleryPreloads = [];
 
 function photo(url, caption) {
     return { url, caption };
@@ -49,7 +61,7 @@ function regionTitle(region) {
 }
 
 function galleryModeLabel(mode) {
-    return mode === "nature" ? bt("vida natural") : bt("pressões climáticas");
+    return mode === "nature" ? bt("vida natural") : bt("impactos ambientais");
 }
 
 const regions = {
@@ -631,6 +643,11 @@ function renderRegion(regionKey) {
 
     if (!data) return;
 
+    if (currentRegion !== regionKey) {
+        currentGalleryMode = "nature";
+        currentSlide = 0;
+    }
+
     currentRegion =
         regionKey;
 
@@ -732,6 +749,7 @@ function openBrazilModal() {
     );
 
     renderBrazilCarousel();
+    preloadBrazilGallery();
 }
 
 function closeModal() {
@@ -748,6 +766,14 @@ function closeModal() {
 function getCurrentGallery() {
     return regions[currentRegion]
         .galleries[currentGalleryMode];
+}
+
+function preloadBrazilGallery() {
+    galleryPreloads = getCurrentGallery().map(slide => {
+        const image = new Image();
+        image.src = slide.url;
+        return image;
+    });
 }
 
 function renderBrazilCarousel() {
@@ -771,63 +797,44 @@ function renderBrazilCarousel() {
     brazilModeToggle.textContent =
         currentGalleryMode === "nature"
             ? bt("Ver impactos")
-            : bt("Ver natureza");
-
-    brazilCarouselImage.src =
-        slide.url;
+            : bt("Ver vida natural");
 
     brazilCarouselImage.alt =
         bt(slide.caption);
 
-    brazilCarouselImage.onerror =
-        () => {
-
-            brazilCarouselImage.onerror =
-                null;
-
-            brazilCarouselImage.src =
-                fallbackBrazilImage;
+    if (displayedSlideUrl !== slide.url) {
+        displayedSlideUrl = slide.url;
+        brazilCarouselImage.onerror = () => {
+            brazilCarouselImage.onerror = null;
+            brazilCarouselImage.src = fallbackBrazilImage;
         };
+        brazilCarouselImage.src = slide.url;
+    }
 
     brazilCarouselCaption.textContent =
         bt(slide.caption);
 
-    brazilCarouselDots.innerHTML =
-        gallery
-            .map(
-                (_, index) => `
-                    <button
-                        class="${
-                            index === currentSlide
-                                ? "active"
-                                : ""
-                        }"
-                        type="button"
-                        aria-label="${bt("Foto")} ${index + 1}"
-                    ></button>
-                `
-            )
+    if (brazilCarouselDots.children.length !== gallery.length) {
+        brazilCarouselDots.innerHTML = gallery
+            .map(() => '<button type="button"></button>')
             .join("");
+    }
 
-    brazilCarouselDots
-        .querySelectorAll("button")
-        .forEach(
-            (button, index) => {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        currentSlide =
-                            index;
-
-                        renderBrazilCarousel();
-                    }
-                );
-            }
-        );
+    Array.from(brazilCarouselDots.children).forEach((button, index) => {
+        button.classList.toggle("active", index === currentSlide);
+        button.setAttribute("aria-label", `${bt("Foto")} ${index + 1}`);
+        button.setAttribute("aria-current", index === currentSlide ? "true" : "false");
+    });
 
 }
+
+brazilCarouselDots.addEventListener("click", event => {
+    const button = event.target.closest("button");
+    if (!button || !brazilCarouselDots.contains(button)) return;
+
+    currentSlide = Array.from(brazilCarouselDots.children).indexOf(button);
+    renderBrazilCarousel();
+});
 
 function moveBrazilSlide(direction) {
     const gallery =
@@ -857,6 +864,7 @@ brazilModeToggle.addEventListener(
         currentSlide = 0;
 
         renderBrazilCarousel();
+        preloadBrazilGallery();
     }
 );
 
